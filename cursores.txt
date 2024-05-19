@@ -1,0 +1,14 @@
+set serveroutput on;
+
+declare 
+filas number(2);
+
+begin 
+    update empleados
+    set sueldo = sueldo + 500 where sueldo>= 3000;
+    if sql%notfound then
+    dbms_output.put_line('No se encontraron empleaados');
+    elsif sql%found then
+      dbms_output.put_line(filas || 'Empkeados actualizados');
+    end if;
+end;
